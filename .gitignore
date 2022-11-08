@@ -1,0 +1,4 @@
+.env
+launch.json
+# excluding files from below directories
+node_modules/*
