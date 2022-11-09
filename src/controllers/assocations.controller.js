@@ -27,9 +27,9 @@ const updateMapping = async (req,res) => {
     // for deleting
     if(reqData.recipientsEmail.deleted.length != 0){
         for(i=0;i<reqData.recipientsEmail.deleted.length;i++){
-            const getIdresult = await emailModel.getId(reqData.recipientsEmail.deleted[i])
-            console.log(req.params.id, getIdresult[0].id)
-            const assocationDelete = await assocationsModel.deleteMapping(req.params.id,  getIdresult[0].id)
+            const emailId = await emailModel.getId(reqData.recipientsEmail.deleted[i])
+            console.log(req.params.id, emailId)
+            const assocationDelete = await assocationsModel.deleteMapping(req.params.id,  emailId)
             console.log("Deleted Mapping row count :  "+assocationDelete.affectedRows) // to see if more than one mapping was there or not
         }
     }
@@ -49,4 +49,4 @@ const updateMapping = async (req,res) => {
     }
 }
 
-module.exports = {getAlldata, createMapping, deleteMapping,updateMapping}
+module.exports = {getAlldata, updateMapping}

@@ -1,0 +1,6 @@
+{
+  "fullName": "Keval Jain",
+  "email": "kj@gmail.com",
+  "password": "keval111",
+  "user_role": "Admin"
+}
