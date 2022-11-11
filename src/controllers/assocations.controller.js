@@ -5,6 +5,9 @@ const emailModel = require('../models/emails.model')
 
 const getAlldata = async (req,res) => {
     const result = await assocationsModel.getAlldata()
+    for(i=0;i<result.length;i++){
+        result[i].Email_Addresses = result[i].Email_Addresses.split(',')
+    }
     res.send(result)
 }
 

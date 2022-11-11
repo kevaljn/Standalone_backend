@@ -8,7 +8,7 @@ async function createMapping(report_id, email_id) {
 
 // getting all data
 async function getAlldata() {
-    return await query("SELECT reports.id as reportId, reports.name as Report_Name, group_concat(emails.address) as Email_Addresses FROM reports JOIN assocations ON reports.id = assocations.reportId JOIN emails ON emails.id = assocations.emailId group by reports.id")
+    return await query("SELECT reports.id as id, reports.name as reportName, group_concat(emails.address) as recipientsEmail FROM reports JOIN assocations ON reports.id = assocations.reportId JOIN emails ON emails.id = assocations.emailId group by reports.id")
 }
 
 //delete mapping
