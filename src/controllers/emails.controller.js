@@ -7,10 +7,10 @@ const create = async (req, res) => {
     res.send(result)
 };
 
-const getId = async (req,res) => {
+const getId = async (req, res) => {
     const address = req.body.address
     const result = await emailModel.getId(address)
     res.send(result)
 }
 
-module.exports={create, getId}
+module.exports = { create, getId }

@@ -1,9 +1,9 @@
-var {query} = require('../services/database')
+var { query } = require('../services/database')
 
 
 //create mapping
 async function createMapping(report_id, email_id) {
-    return await query("INSERT INTO assocations (reportId,emailId) VALUES (?,?)",[report_id,email_id])
+    return await query("INSERT INTO assocations (reportId,emailId) VALUES (?,?)", [report_id, email_id])
 }
 
 // getting all data
@@ -13,8 +13,8 @@ async function getAlldata() {
 
 //delete mapping
 async function deleteMapping(report_id, email_id) {
-    return await query("DELETE FROM assocations WHERE reportId=? AND emailId=?",[report_id,email_id])
+    return await query("DELETE FROM assocations WHERE reportId=? AND emailId=?", [report_id, email_id])
 }
 
 
-module.exports = {getAlldata, createMapping, deleteMapping}
+module.exports = { getAlldata, createMapping, deleteMapping }
