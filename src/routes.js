@@ -6,6 +6,7 @@ const { checkToken } = require("../src/services/token.validation");
 const userController = require("./controllers/users.controller");
 const loginController = require("./controllers/login.controller");
 const assocationsController = require("./controllers/assocations.controller");
+const resetPasswordController = require("./controllers/resetPassword.controller")
 
 // router.post('/createEmail',emailController.create)
 
@@ -16,6 +17,10 @@ const assocationsController = require("./controllers/assocations.controller");
 // router.delete('/deleteMap/:report_id',assocationsController.deleteMapping)
 
 // router.post('/createReport',reportsController.createReport)
+
+router.post("/forgot_password", resetPasswordController.forgetPassword)
+
+router.get("/reset_password/:userId/:token", checkToken, resetPasswordController.resetPassword)
 
 router.post("/createUser", userController.createUser);
 

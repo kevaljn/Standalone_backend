@@ -1,14 +1,12 @@
 const userModel = require('../models/users.model')
-const { genSaltSync, hashSync } = require('bcrypt')
+const { encryptPassword } = require('../services/password.encrypt')
 
 const createUser = async (req, res) => {
     try {
         const fullName = req.body.fullName
         const email = req.body.email
 
-        //Password encryption
-        const salt = genSaltSync(10)
-        const password = hashSync(req.body.password, salt)
+        const password = encryptPassword(req.body.password)
 
         const userRole = req.body.userRole
         const result = await userModel.createUser(fullName, email, password, userRole)

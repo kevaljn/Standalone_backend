@@ -1,4 +1,3 @@
-const { response } = require('express')
 const assocationsModel = require('../models/assocations.model')
 const emailModel = require('../models/emails.model')
 

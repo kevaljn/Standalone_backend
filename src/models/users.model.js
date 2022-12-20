@@ -11,4 +11,9 @@ async function getUserbyId(email) {
     return await query("SELECT * FROM usersdr WHERE email=?", email)
 }
 
-module.exports = { createUser, getUserbyId }
+//Update password
+async function updatePassword(id, password) {
+    return await query("UPDATE userdr SET password = ? WHERE (iD = ?)",[password, id])
+}
+
+module.exports = { createUser, getUserbyId, updatePassword }

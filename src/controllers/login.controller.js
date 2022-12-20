@@ -17,7 +17,8 @@ const login = async (req, res) => {
             res.json({
                 success: 1,
                 message: "Login Successfully",
-                token: jsonToken
+                token: jsonToken,
+                user: emailResult
             })
         }
         else {
