@@ -2,7 +2,13 @@ const { verify } = require('jsonwebtoken')
 
 const checkToken = async (req, res, next) => {
     // console.log(req)
-    let token = req.get("authorization") || ("Bearer " + req.params.token)
+    // let token = req.get("authorization") || ("Bearer " + req.params.token)
+    if(req.get("authorization") =="Bearer null" ){
+        token = ("Bearer " + req.params.token)
+    }
+    else{
+        token = req.get("authorization")
+    }
     if (token) {
         token = token.slice(7)
         await verify(token, "qwe1234", (err, decoded) => {

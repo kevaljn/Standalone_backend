@@ -23,12 +23,12 @@ const forgetPassword = async (req, res) => {
 
 const resetPassword = async (req, res) => {
 
-    const userId = req.params.userId
-    console.log("We got the id : "+userId)
+    const userId = parseInt(req.params.userId)
+    console.log("We got the id : "+userId,typeof(userId))
 
-    // const password = encryptPassword(req.body.password)
+    const password = encryptPassword(req.body.password)
 
-    // const changepassword = await userModel.updatePassword(userId, password)
+    const changepassword = await userModel.updatePassword(userId, password)
 
     res.send("password changed")
 }

@@ -13,7 +13,7 @@ async function getUserbyId(email) {
 
 //Update password
 async function updatePassword(id, password) {
-    return await query("UPDATE userdr SET password = ? WHERE (iD = ?)",[password, id])
+    return await query("UPDATE usersdr SET password = ? WHERE (iD = ?)",[password, id])
 }
 
 module.exports = { createUser, getUserbyId, updatePassword }

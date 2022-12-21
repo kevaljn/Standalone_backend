@@ -20,11 +20,11 @@ const resetPasswordController = require("./controllers/resetPassword.controller"
 
 router.post("/forgot_password", resetPasswordController.forgetPassword)
 
-router.get("/reset_password/:userId/:token", checkToken, resetPasswordController.resetPassword)
+router.post("/reset_password/:userId/:token", checkToken, resetPasswordController.resetPassword)
 
 router.post("/createUser", userController.createUser);
 
-router.get("/login", loginController.login);
+router.post("/login", loginController.login);
 
 //*Data Report home page
 router.get("/dashboard", checkToken, assocationsController.getAlldata);
