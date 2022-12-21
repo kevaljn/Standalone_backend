@@ -13,7 +13,7 @@ const forgetPassword = async (req, res) => {
         const fullName = userDetails.fullName
 
         sendResetEmail(email, userId, fullName);
-        
+
         res.send("Reset mail sent to your email id.")
     }
     catch (err) {
@@ -24,7 +24,6 @@ const forgetPassword = async (req, res) => {
 const resetPassword = async (req, res) => {
 
     const userId = parseInt(req.params.userId)
-    console.log("We got the id : "+userId,typeof(userId))
 
     const password = encryptPassword(req.body.password)
 

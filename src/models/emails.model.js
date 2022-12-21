@@ -2,7 +2,7 @@ var { query } = require('../services/database')
 
 //creating new email
 async function createEmail(email) {
-    return await query("INSERT INTO emails (address) values(?)", email);
+    return await query("INSERT INTO emails (address) values(?)", email)
 }
 
 //getting id of the email

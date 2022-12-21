@@ -9,7 +9,7 @@ const pool = mysql.createPool({
 }).promise()
 
 async function query(query, params) {
-    const [result] = await pool.query(query, params).catch((err) => console.log(err));
+    const [result] = await pool.query(query, params).catch((err) => console.log(err))
     return result
 }
 

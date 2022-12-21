@@ -14,19 +14,6 @@ const getAlldata = async (req, res) => {
     }
 }
 
-// const createMapping = async (req,res) => {
-//     const r_id = req.params.report_id
-//     const e_id = req.body.email_id
-//     const result = await assocationsModel.createMapping(r_id,e_id)
-//     res.send(result)
-// }
-
-// const deleteMapping = async (req,res) => {
-//     const r_id = req.params.report_id
-//     const e_id = req.body.email_id
-//     const result = await assocationsModel.deleteMapping(r_id,e_id)
-//     res.send(result)
-// }
 
 const updateMapping = async (req, res) => {
     try {

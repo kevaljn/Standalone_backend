@@ -3,10 +3,10 @@ const { verify } = require('jsonwebtoken')
 const checkToken = async (req, res, next) => {
     // console.log(req)
     // let token = req.get("authorization") || ("Bearer " + req.params.token)
-    if(req.get("authorization") =="Bearer null" ){
+    if (req.get("authorization") == "Bearer null") {
         token = ("Bearer " + req.params.token)
     }
-    else{
+    else {
         token = req.get("authorization")
     }
     if (token) {
