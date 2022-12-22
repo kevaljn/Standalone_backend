@@ -4,7 +4,7 @@ const { sign } = require('jsonwebtoken')
 
 const login = async (req, res) => {
     try {
-        const email = req.body.loginEmail
+        const email = req.body.email
         const password = req.body.password
 
         const [emailResult] = await userModel.getUserbyId(email)
