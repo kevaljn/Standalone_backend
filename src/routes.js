@@ -30,6 +30,6 @@ router.post("/login", loginController.login);
 router.get("/dashboard", checkToken, assocationsController.getAlldata);
 
 //*Updating the data
-router.post("/UpdateAssocation/:id", checkToken, assocationsController.updateMapping);
+router.post("/UpdateAssocation/:id", assocationsController.updateMapping);
 
 module.exports = router;

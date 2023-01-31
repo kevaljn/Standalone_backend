@@ -33,7 +33,6 @@ const sendResetEmail = (emailId, userId, fullName) => {
         if (err) {
             console.log(err)
         } else {
-            console.log(typeof(jsonToken))
             console.log("Mail sent successfully", info.response)
         }
     })

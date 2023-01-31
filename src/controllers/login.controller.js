@@ -22,7 +22,7 @@ const login = async (req, res) => {
             })
         }
         else {
-            res.send("Incorrect emailId or password")
+            res.send({message:"Incorrect emailId or password"})
         }
     } catch (error) {
         res.send(error)

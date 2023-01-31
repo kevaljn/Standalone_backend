@@ -16,8 +16,8 @@ const getAlldata = async (req, res) => {
 
 
 const updateMapping = async (req, res) => {
+    let reqData = req.body
     try {
-        let reqData = req.body
         // for deleting
         if (reqData.recipientsEmail.deleted.length != 0) {
             for (i = 0; i < reqData.recipientsEmail.deleted.length; i++) {
@@ -35,13 +35,12 @@ const updateMapping = async (req, res) => {
         if (reqData.recipientsEmail.inserted.length != 0) {
             for (i = 0; i < reqData.recipientsEmail.inserted.length; i++) {
                 let emailId = await emailModel.getId(reqData.recipientsEmail.inserted[i])
-                // console.log(req.params.id, getIdresult[0].id)
                 if (!emailId) {
                     var email = await emailModel.createEmail(reqData.recipientsEmail.inserted[i])
                     emailId = email.insertId
                 }
-                //console.log(emailId)
                 const insertMapping = await assocationsModel.createMapping(req.params.id, emailId)
+                console.log("Inserted assocation :",req.params.id,emailId)
                 res.send(insertMapping)
             }
         }
