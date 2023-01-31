@@ -8,6 +8,12 @@ const login = async (req, res) => {
         const password = req.body.password
 
         const [emailResult] = await userModel.getUserbyId(email)
+        if(!emailResult){
+            res.json({
+                success: 0,
+                message: "User does not exist!"
+            })
+        }
         const comparePassword = compareSync(password, emailResult.password)
 
         const jsonToken = sign({ results: emailResult }, "qwe1234", {
@@ -22,7 +28,7 @@ const login = async (req, res) => {
             })
         }
         else {
-            res.send({message:"Incorrect emailId or password"})
+            res.send({message:"Incorrect password"})
         }
     } catch (error) {
         res.send(error)
