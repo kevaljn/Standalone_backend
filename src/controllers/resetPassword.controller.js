@@ -4,7 +4,7 @@ const { encryptPassword } = require('../services/password.encrypt')
 
 const forgetPassword = async (req, res) => {
     try {
-        const email = req.body.emailid
+        const email = req.body.email
 
         const [userDetails] = await userModel.getUserbyId(email)
 
